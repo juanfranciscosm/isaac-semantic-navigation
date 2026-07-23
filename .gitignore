@@ -1,0 +1,47 @@
+# Entornos virtuales
+.venv/
+.venv_ros/
+
+# Artefactos de compilación de ROS 2 / colcon
+build/
+install/
+log/
+
+# Dataset generado por Isaac Sim
+src/isaac_dataset/
+
+# Caché de Python
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Logs y archivos temporales
+*.log
+*.tmp
+*.swp
+*~
+
+# Diagramas TF generados automáticamente
+frames_*.gv
+frames_*.pdf
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Copias locales creadas durante el desarrollo
+*_backup.py
+*_before_*.py
+nav2_params_before_*.yaml
+nav2_params_original.yaml
+
+# Variables, credenciales y claves locales
+.env
+.env.*
+*.pem
+*.key
+credentials*

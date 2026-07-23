@@ -1,0 +1,13 @@
+clipseg_node:
+  ros__parameters:
+    input_topic: /cam1/color/image_raw
+    mask_topic: /clipseg/mask
+    probability_topic: /clipseg/probability
+    overlay_topic: /clipseg/overlay
+
+    prompt: table
+    threshold: 0.50
+    max_rate_hz: 2.0
+
+    model_id: CIDAS/clipseg-rd64-refined
+    use_amp: true
