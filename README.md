@@ -5,6 +5,8 @@ en NVIDIA Isaac Sim. El sistema permite localizar un objeto mediante una
 descripción textual, estimar su posición tridimensional y navegar
 autónomamente hasta una posición segura frente a él.
 
+![Escena del Jackal en Isaac Sim](assets/images/sn_image01.png)
+
 El pipeline integra:
 
 - NVIDIA Isaac Sim 5.1.0.
@@ -24,6 +26,8 @@ El usuario proporciona una clase textual, por ejemplo:
 ```text
 box
 ```
+
+![Prueba de segmentacion](assets/images/sn_image02.png)
 
 CLIPSeg segmenta las regiones de la imagen RGB que corresponden con esa
 descripción. La máscara se combina con la imagen de profundidad y los
@@ -304,6 +308,8 @@ solo dentro de una parte del sistema.
 
 El sistema se ejecuta en varias terminales.
 
+![terminales del sistema](assets/images/sn_image03.png)
+
 ### Terminal 1: iniciar Isaac Sim
 
 Se asume que NVIDIA Isaac Sim 5.1.0 ya está instalado en:
@@ -458,6 +464,8 @@ rviz2
 ```
 
 #### Configuración inicial
+
+![rviz](assets/images/sn_image04.png)
 
 En el panel izquierdo de RViz, abrir:
 
@@ -757,6 +765,8 @@ Los parámetros utilizados son:
 | `/semantic_object/goal_pose` | `geometry_msgs/msg/PoseStamped` | Meta situada antes del objeto y orientada hacia él |
 
 
+![semantic localizer en rviz](assets/images/sn_image05.png)
+
 En RViz, la salida `/semantic_object/point_odom_stable` se visualiza con
 un display de tipo `PointStamped`, mientras que
 `/semantic_object/goal_pose` se visualiza con un display de tipo `Pose`.
@@ -801,6 +811,9 @@ ros2 param set \
   enabled \
   true
 ```
+
+![semantic navigator habilitado](assets/images/sn_image06.png)
+
 
 Cuando Nav2 acepte la meta o el robot empiece a moverse:
 
