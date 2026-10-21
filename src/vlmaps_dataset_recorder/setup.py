@@ -16,7 +16,7 @@ setup(
             ['package.xml'],
         ),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'PyYAML'],
     zip_safe=True,
     maintainer='robotica-cidis',
     maintainer_email='robotica-cidis@localhost',
@@ -26,6 +26,7 @@ setup(
     entry_points={
         'console_scripts': [
             'vlmaps_dataset_recorder = vlmaps_dataset_recorder.recorder_node:main',
+            'mapping_pose_runner = vlmaps_dataset_recorder.mapping_pose_runner:main',
         ],
     },
 )

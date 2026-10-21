@@ -10,10 +10,16 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from rclpy.time import Time
-from rclpy.qos import qos_profile_sensor_data
+from rclpy.qos import (
+    qos_profile_sensor_data,
+    QoSProfile,
+    ReliabilityPolicy,
+    DurabilityPolicy,
+)
 from rclpy.executors import ExternalShutdownException
 
 from sensor_msgs.msg import Image, CameraInfo
+from std_msgs.msg import UInt32
 from std_srvs.srv import Trigger
 from cv_bridge import CvBridge
 
@@ -197,6 +203,25 @@ class VLMapsDatasetRecorder(Node):
             Trigger,
             "~/capture",
             self.capture_callback,
+        )
+
+        capture_status_qos = QoSProfile(
+            depth=1,
+            reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL,
+        )
+
+        self.saved_frame_count_publisher = self.create_publisher(
+            UInt32,
+            "~/saved_frame_count",
+            capture_status_qos,
+        )
+
+        initial_count = UInt32()
+        initial_count.data = self.frame_index
+
+        self.saved_frame_count_publisher.publish(
+            initial_count
         )
 
         # ---------------------------------------------------------
@@ -663,7 +688,17 @@ class VLMapsDatasetRecorder(Node):
             valid.mean()
         )
 
+        self.pose_file.flush()
+        self.timestamps_file.flush()
+
         self.frame_index += 1
+
+        saved_count = UInt32()
+        saved_count.data = self.frame_index
+
+        self.saved_frame_count_publisher.publish(
+            saved_count
+        )
 
         if (
             self.frame_index <= 5
