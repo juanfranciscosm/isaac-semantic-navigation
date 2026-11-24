@@ -1,0 +1,36 @@
+object: boxes
+ground_truth_source: isaac_sim_entity_bounds_group
+frame: isaac_world
+target_margin_m: 0.2
+
+instances:
+  BottomShelfPinkCrates:
+    entity: /World/Warehouse_Empty_small_realtime/KLT_Bins
+    center:
+      x: -9.379749790
+      y: 10.402649758
+      z: 0.537881855
+    bounds:
+      xmin: -9.727837128
+      xmax: -9.031662452
+      ymin: 8.731882349
+      ymax: 12.073417167
+      zmin: 0.205316030
+      zmax: 0.870447679
+
+expected_nearest_instance:
+  P1:
+    instance: BottomShelfPinkCrates
+    distance_to_bounds_m: 10.1465
+
+  P2:
+    instance: BottomShelfPinkCrates
+    distance_to_bounds_m: 8.9481
+
+  P3:
+    instance: BottomShelfPinkCrates
+    distance_to_bounds_m: 8.3894
+
+  P4:
+    instance: BottomShelfPinkCrates
+    distance_to_bounds_m: 5.5021

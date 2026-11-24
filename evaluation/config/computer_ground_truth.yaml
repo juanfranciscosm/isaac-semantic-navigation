@@ -1,0 +1,53 @@
+object: computer
+ground_truth_source: isaac_sim_entity_bounds
+target_margin_m: 0.2
+instances:
+  SM_Computer_02b:
+    entity: /World/SM_Computer_02b
+    x: 6.744572
+    y: 10.032369
+    z: 0.309093
+    center:
+      x: 6.744572
+      y: 10.032369
+      z: 0.309093
+    bounds:
+      xmin: 6.449447
+      xmax: 7.039697
+      ymin: 9.602573
+      ymax: 10.462164
+      zmin: 0.0
+      zmax: 0.618186
+  SM_Computer_02b_01:
+    entity: /World/SM_Computer_02b_01
+    x: 7.031074
+    y: 6.159965
+    z: 0.309093
+    center:
+      x: 7.031074
+      y: 6.159965
+      z: 0.309093
+    bounds:
+      xmin: 6.747805
+      xmax: 7.314343
+      ymin: 5.706794
+      ymax: 6.613137
+      zmin: 0.0
+      zmax: 0.618186
+expected_nearest_instance:
+  P1:
+    instance: SM_Computer_02b_01
+    distance_m: 5.458748
+    other_distance_m: 6.186912
+  P2:
+    instance: SM_Computer_02b_01
+    distance_m: 4.409971
+    other_distance_m: 7.374507
+  P3:
+    instance: SM_Computer_02b
+    distance_m: 5.111718
+    other_distance_m: 8.45537
+  P4:
+    instance: SM_Computer_02b
+    distance_m: 6.600709
+    other_distance_m: 7.574108

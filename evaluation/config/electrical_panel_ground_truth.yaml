@@ -1,0 +1,31 @@
+object: electrical_panel
+ground_truth_source: isaac_sim_entity_bounds
+frame: isaac_world
+target_margin_m: 0.2
+instances:
+  SM_FuseBox_24:
+    entity: /World/Warehouse_Empty_small_realtime/SM_FuseBox_24
+    center:
+      x: -4.073627
+      y: 17.792851
+      z: 0.855711
+    bounds:
+      xmin: -4.342944
+      xmax: -3.80431
+      ymin: 17.585702
+      ymax: 18.0
+      zmin: 1.2e-05
+      zmax: 1.711409
+expected_nearest_instance:
+  P1:
+    instance: SM_FuseBox_24
+    distance_to_bounds_m: 6.7431
+  P2:
+    instance: SM_FuseBox_24
+    distance_to_bounds_m: 8.6102
+  P3:
+    instance: SM_FuseBox_24
+    distance_to_bounds_m: 8.9739
+  P4:
+    instance: SM_FuseBox_24
+    distance_to_bounds_m: 8.2977

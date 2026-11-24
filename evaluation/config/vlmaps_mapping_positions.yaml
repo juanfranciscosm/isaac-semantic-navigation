@@ -1,0 +1,242 @@
+object: vlmaps_mapping
+positions:
+  M001:
+    x: 0.5495584607124329
+    y: 5.392505645751953
+    z: 0.06349994242191315
+    qx: 2.9802322387695312e-08
+    qy: -3.632158041000366e-08
+    qz: 0.9884781837463379
+    qw: 0.15136371552944183
+    source_file: boxes_positions.yaml
+    source_position: P1
+  M002:
+    x: -0.08355370163917542
+    y: 9.06305980682373
+    z: 0.06350000202655792
+    qx: -1.0803341865539551e-07
+    qy: -7.830094546079636e-07
+    qz: 0.9979451894760132
+    qw: -0.06407514959573746
+    source_file: boxes_positions.yaml
+    source_position: P2
+  M003:
+    x: -3.455935001373291
+    y: 2.463419198989868
+    z: 0.06350040435791016
+    qx: 2.9802322387695312e-08
+    qy: -1.1362135410308838e-07
+    qz: 0.8609819412231445
+    qw: 0.5086356401443481
+    source_file: boxes_positions.yaml
+    source_position: P3
+  M004:
+    x: -3.529513359069824
+    y: 11.306739807128906
+    z: 0.06350034475326538
+    qx: -2.7939677238464355e-07
+    qy: 7.683411240577698e-09
+    qz: 0.9993508458137512
+    qw: -0.03602776303887367
+    source_file: boxes_positions.yaml
+    source_position: P4
+  M005:
+    x: 2.194493293762207
+    y: 12.488603591918945
+    z: 0.06349977105855942
+    qx: 3.762543201446533e-07
+    qy: -1.1920928955078125e-07
+    qz: 0.7847288846969604
+    qw: -0.619839072227478
+    source_file: cargo_vehicle_positions.yaml
+    source_position: P1
+  M006:
+    x: 6.840936660766602
+    y: 8.069304466247559
+    z: 0.06349918246269226
+    qx: 8.195638656616211e-08
+    qy: 1.4901161193847656e-08
+    qz: 0.8989161252975464
+    qw: -0.43812093138694763
+    source_file: cargo_vehicle_positions.yaml
+    source_position: P2
+  M007:
+    x: -9.305216789245605
+    y: -10.87252140045166
+    z: 0.06350108981132507
+    qx: 2.60770320892334e-08
+    qy: 5.21540641784668e-08
+    qz: 0.428730309009552
+    qw: 0.9034326076507568
+    source_file: cargo_vehicle_positions.yaml
+    source_position: P3
+  M008:
+    x: -7.699853420257568
+    y: 5.489670753479004
+    z: 0.06350086629390717
+    qx: -1.0244548320770264e-07
+    qy: 5.21540641784668e-08
+    qz: -0.4945961534976959
+    qw: 0.8691230416297913
+    source_file: cargo_vehicle_positions.yaml
+    source_position: P4
+  M009:
+    x: 0.377290397882
+    y: 5.446569442749
+    z: 0.063499994576
+    qx: 1.19209e-07
+    qy: 6.8918e-08
+    qz: 0.988478185941
+    qw: 0.151363390289
+    source_file: cylindrical_container_positions.yaml
+    source_position: P1
+  M010:
+    x: -2.312166752056
+    y: 11.57217919482
+    z: 0.063499994576
+    qx: 6.2938e-08
+    qy: 1.22472e-07
+    qz: 0.913103940072
+    qw: -0.40772686277
+    source_file: cylindrical_container_positions.yaml
+    source_position: P2
+  M011:
+    x: -5.865051876485
+    y: 11.950168083021
+    z: 0.063499994576
+    qx: 4.3707e-08
+    qy: 1.30577e-07
+    qz: 0.840998982023
+    qw: -0.541036701377
+    source_file: cylindrical_container_positions.yaml
+    source_position: P3
+  M012:
+    x: -0.446369527995
+    y: -2.032119898064
+    z: 0.063499994576
+    qx: 1.34506e-07
+    qy: 2.9474e-08
+    qz: 0.895871816969
+    qw: 0.444312601172
+    source_file: cylindrical_container_positions.yaml
+    source_position: P4
+  M013:
+    x: -3.011390924454
+    y: 10.889394760132
+    z: 0.063500218093
+    qx: -4.32134e-07
+    qy: -6.44475e-07
+    qz: 0.737281079484
+    qw: 0.675586123181
+    source_file: electrical_panel_positions.yaml
+    source_position: P1
+  M014:
+    x: 1.378368227668
+    y: 10.709971279674
+    z: 0.063500218093
+    qx: -2.69389e-07
+    qy: -7.27679e-07
+    qz: 0.874858811797
+    qw: 0.48437801294
+    source_file: electrical_panel_positions.yaml
+    source_position: P2
+  M015:
+    x: -4.898788331077
+    y: 8.629055542315
+    z: 0.063500218093
+    qx: -5.70884e-07
+    qy: -5.25527e-07
+    qz: 0.558817658938
+    qw: 0.829290554666
+    source_file: electrical_panel_positions.yaml
+    source_position: P3
+  M016:
+    x: 2.648007489197
+    y: 12.368400401958
+    z: 0.063500374556
+    qx: 4.4621e-08
+    qy: 1.80572e-07
+    qz: 0.880627917547
+    qw: 0.473808474848
+    source_file: electrical_panel_positions.yaml
+    source_position: P4
+  M017:
+    x: -2.754427909851074
+    y: -9.428638458251953
+    z: 0.063500195741653
+    qx: 1.71363e-07
+    qy: 2.58908e-07
+    qz: 0.892539744332
+    qw: 0.450968740367
+    source_file: extinguisher_positions.yaml
+    source_position: P1
+  M018:
+    x: -8.154691859689132
+    y: -10.759910629243262
+    z: 0.063500195741471
+    qx: 2.34506739e-07
+    qy: 2.03482582e-07
+    qz: 0.738947940394255
+    qw: 0.673762525959252
+    source_file: extinguisher_positions.yaml
+    source_position: P2
+  M019:
+    x: -1.15204940430648
+    y: -5.777423060411294
+    z: 0.063500195741627
+    qx: 4.506097e-08
+    qy: 3.07193881e-07
+    qz: 0.999584655721121
+    qw: 0.02881867531293
+    source_file: extinguisher_positions.yaml
+    source_position: P3
+  M020:
+    x: -3.776843403359717
+    y: -3.63353132771275
+    z: 0.063500195741827
+    qx: -1.2810761e-08
+    qy: 3.10216789e-07
+    qz: 0.987528659686116
+    qw: -0.157439341647653
+    source_file: extinguisher_positions.yaml
+    source_position: P4
+  M021:
+    x: 1.28905701637268
+    y: 6.189619064331056
+    z: 0.063499748706818
+    qx: -7.12229024e-07
+    qy: 4.4703297e-08
+    qz: 0.042989192980405
+    qw: 0.999075537327576
+    source_file: multitarget_positions.yaml
+    source_position: P1
+  M022:
+    x: 3.329513246261564
+    y: 2.920555006983861
+    z: 0.056819931730289
+    qx: -6.70531594e-07
+    qy: -3.88038591e-07
+    qz: 0.364894036092453
+    qw: 0.931049054789037
+    source_file: multitarget_positions.yaml
+    source_position: P2
+  M023:
+    x: 2.903601408004758
+    y: 14.144098281860353
+    z: 0.063499592244625
+    qx: -3.56703865e-07
+    qy: 1.11758461e-07
+    qz: -0.273996654127501
+    qw: 0.961730644997233
+    source_file: multitarget_positions.yaml
+    source_position: P3
+  M024:
+    x: -0.151262030005455
+    y: 9.738834381103514
+    z: 0.063500069081783
+    qx: 1.482685e-09
+    qy: 5.5879408e-08
+    qz: 0.000476570529188
+    qw: 0.999999886440257
+    source_file: multitarget_positions.yaml
+    source_position: P4

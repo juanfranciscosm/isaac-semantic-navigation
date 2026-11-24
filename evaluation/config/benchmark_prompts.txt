@@ -1,0 +1,205 @@
+SEMANTIC NAVIGATION BENCHMARK - CLIPSeg PROMPTS
+================================================
+
+Purpose:
+This document records the exact CLIPSeg text prompts and inference
+parameters used during the semantic navigation benchmark.
+
+The prompt and CLIPSeg parameters remain fixed across all experimental
+conditions for each object:
+I0, I25, I50, O20, O50, O80.
+
+
+------------------------------------------------------------
+1. CARGO VEHICLE / FORKLIFTS
+------------------------------------------------------------
+
+object_name:
+cargo_vehicle
+
+CLIPSeg prompt:
+yellow forklift
+
+threshold:
+0.50
+
+max_rate_hz:
+2.0
+
+input_topic:
+/rgb
+
+Valid physical instances:
+- Forklift
+- Forklift_01
+
+Evaluation:
+Both forklift instances are considered valid members of the requested
+semantic object class. The expected target instance depends on the
+initial robot position.
+
+
+------------------------------------------------------------
+2. BOXES
+------------------------------------------------------------
+
+object_name:
+boxes
+
+CLIPSeg prompt:
+large stack of pink plastic crates on the bottom shelf
+
+threshold:
+0.50
+
+max_rate_hz:
+2.0
+
+input_topic:
+/rgb
+
+Ground-truth target:
+BottomShelfPinkCrates
+
+Description:
+The prompt intentionally specifies the stack of pink plastic crates
+located on the bottom shelf so that the requested semantic target is
+distinguished from other boxes or containers present in the warehouse.
+
+
+------------------------------------------------------------
+3. CYLINDRICAL CONTAINER
+------------------------------------------------------------
+
+object_name:
+cylindrical_container
+
+CLIPSeg prompt:
+cylindrical container
+
+threshold:
+0.70
+
+max_rate_hz:
+2.0
+
+input_topic:
+/rgb
+
+Valid physical instances:
+- SM_BarelPlastic_A_01
+- SM_BarelPlastic_A_03
+
+
+
+------------------------------------------------------------
+FIXED BENCHMARK RULE
+------------------------------------------------------------
+
+For each object, the corresponding prompt, threshold, and maximum
+inference frequency are kept unchanged across all six experimental
+conditions.
+
+Only the experimental condition changes:
+- I0: nominal illumination
+- I25: 25 percent reduction in illumination
+- I50: 50 percent reduction in illumination
+- O20: nominal geometric 20 percent bottom-up occlusion
+- O50: nominal geometric 50 percent bottom-up occlusion
+- O80: nominal geometric 80 percent bottom-up occlusion
+
+------------------------------------------------------------
+4. ELECTRICAL PANEL
+------------------------------------------------------------
+
+object_name:
+electrical_panel
+
+CLIPSeg prompt:
+electrical panel
+
+threshold:
+0.70
+
+max_rate_hz:
+2.0
+
+input_topic:
+/rgb
+
+Valid physical instance:
+- SM_FuseBox_24
+
+Entity:
+/World/Warehouse_Empty_small_realtime/SM_FuseBox_24
+
+------------------------------------------------------------
+5. EXTINGUISHER
+------------------------------------------------------------
+
+object_name:
+extinguisher
+
+CLIPSeg prompt:
+extinguisher
+
+threshold:
+0.70
+
+max_rate_hz:
+2.0
+
+input_topic:
+/rgb
+
+Valid physical instance:
+- SM_FireExtinguisher_24
+
+Entity:
+/World/Warehouse_Empty_small_realtime/SM_FireExtinguisher_24
+
+
+6. door
+   prompt: "wood door"
+   threshold: 0.70
+   max_rate_hz: 2.0
+   input_topic: /rgb
+   valid_instances:
+     - SM_DoorA_Door
+     - SM_DoorA_Door_01
+
+7. medical_bag
+   prompt: "medical bag"
+   threshold: 0.70
+   max_rate_hz: 2.0
+   input_topic: /rgb
+   valid_instances:
+     - SM_MedicalBag_01a
+     - SM_MedicalBag_01a_01
+
+
+8. drinks_machine
+   prompt: "vending machine fridge"
+   threshold: 0.70
+   max_rate_hz: 2.0
+   input_topic: /rgb
+   valid_instances:
+     - SM_DrinksMachine_01
+
+9. computer
+   prompt: "office computer monitor screen"
+   threshold: 0.70
+   max_rate_hz: 2.0
+   input_topic: /rgb
+   valid_instances:
+     - SM_Computer_02b
+     - SM_Computer_02b_01
+
+10. chair
+    prompt: "chair"
+    threshold: 0.70
+    max_rate_hz: 2.0
+    input_topic: /rgb
+    valid_instances:
+      - SM_Chair
+      - SM_Chair_01
