@@ -281,7 +281,11 @@ class SemanticNavigatorNode(Node):
         )
 
     def result_callback(self, future):
+        # La navegación anterior terminó.
+        # Limpiamos el estado para permitir un nuevo episodio.
         self.goal_active = False
+        self.goal_handle = None
+        self.last_sent_goal = None
 
         try:
             wrapped_result = future.result()
@@ -308,7 +312,6 @@ class SemanticNavigatorNode(Node):
         self.get_logger().info(
             f'Navegación {status_name}'
         )
-
 
 def main(args=None):
     rclpy.init(args=args)

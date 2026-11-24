@@ -42,10 +42,11 @@ class SemanticLocalizerNode(Node):
         # Parámetros de sincronización y filtrado
         self.declare_parameter('sync_slop', 1.0)
         self.declare_parameter('min_depth_m', 0.20)
-        self.declare_parameter('max_depth_m', 10.0)
+        self.declare_parameter('max_depth_m', 20.0)
         self.declare_parameter('depth_band_m', 0.30)
         self.declare_parameter('min_component_area_px', 200)
         self.declare_parameter('min_valid_points', 100)
+        self.declare_parameter('instance_merge_distance_m', 2.0)
 
         self.mask_topic = str(
             self.get_parameter('mask_topic').value
@@ -107,6 +108,12 @@ class SemanticLocalizerNode(Node):
         self.min_valid_points = int(
             self.get_parameter('min_valid_points').value
         )
+
+        self.instance_merge_distance_m = float(
+            self.get_parameter(
+                'instance_merge_distance_m'
+            ).value
+        )
         self.lock_target_after_first_detection = bool(
             self.get_parameter(
                 'lock_target_after_first_detection'
@@ -160,6 +167,14 @@ class SemanticLocalizerNode(Node):
             PoseStamped,
             '/semantic_object/goal_pose',
             10
+        )
+
+        # Máscara 2D de la instancia realmente seleccionada
+        # por el localizador. Se usa únicamente para evaluación.
+        self.selected_mask_publisher = self.create_publisher(
+            Image,
+            '/semantic_object/selected_mask',
+            qos_profile_sensor_data
         )
 
         self.reset_target_service = self.create_service(
@@ -234,10 +249,16 @@ class SemanticLocalizerNode(Node):
             f'{depth_message.encoding}'
         )
 
-    def select_largest_component(self, binary_mask):
+    def select_nearest_component(
+        self,
+        binary_mask,
+        depth_m,
+        stamp
+    ):
         """
-        Separa regiones desconectadas de la máscara y devuelve
-        únicamente la región más grande.
+        Detecta componentes semánticos válidos, agrupa los que
+        pertenecen probablemente a la misma instancia física y
+        selecciona la instancia más cercana al robot en odom XY.
         """
 
         number_of_labels, labels, stats, _ = (
@@ -247,31 +268,395 @@ class SemanticLocalizerNode(Node):
             )
         )
 
-        # La etiqueta 0 siempre es el fondo.
         if number_of_labels <= 1:
             return None
 
-        component_areas = stats[
-            1:,
-            cv2.CC_STAT_AREA
-        ]
+        fx = float(self.camera_info.k[0])
+        fy = float(self.camera_info.k[4])
+        cx = float(self.camera_info.k[2])
+        cy = float(self.camera_info.k[5])
 
-        largest_label = (
-            int(np.argmax(component_areas)) + 1
-        )
-
-        largest_area = int(
-            stats[
-                largest_label,
-                cv2.CC_STAT_AREA
-            ]
-        )
-
-        if largest_area < self.min_component_area_px:
+        if fx <= 0.0 or fy <= 0.0:
             return None
 
-        return labels == largest_label
-    
+        timestamp = Time.from_msg(stamp)
+
+        try:
+            camera_to_target = self.tf_buffer.lookup_transform(
+                self.target_frame,
+                self.camera_tf_frame,
+                timestamp,
+                timeout=Duration(seconds=0.5)
+            )
+
+            robot_transform = self.tf_buffer.lookup_transform(
+                self.target_frame,
+                self.base_frame,
+                timestamp,
+                timeout=Duration(seconds=0.5)
+            )
+
+        except Exception as error:
+            self.get_logger().warning(
+                'No se pudieron obtener TF para '
+                'seleccionar instancia: '
+                f'{error}'
+            )
+            return None
+
+        robot_x = float(
+            robot_transform.transform.translation.x
+        )
+
+        robot_y = float(
+            robot_transform.transform.translation.y
+        )
+
+        candidates = []
+
+        # -------------------------------------------------
+        # Construye un candidato 3D por componente
+        # -------------------------------------------------
+
+        for label in range(
+            1,
+            number_of_labels
+        ):
+
+            area = int(
+                stats[
+                    label,
+                    cv2.CC_STAT_AREA
+                ]
+            )
+
+            if area < self.min_component_area_px:
+                continue
+
+            component = (
+                labels == label
+            )
+
+            v_pixels, u_pixels = np.where(
+                component
+            )
+
+            z_values = depth_m[
+                v_pixels,
+                u_pixels
+            ]
+
+            valid_depth = (
+                np.isfinite(z_values)
+                & (z_values >= self.min_depth_m)
+                & (z_values <= self.max_depth_m)
+            )
+
+            u_pixels = u_pixels[
+                valid_depth
+            ]
+
+            v_pixels = v_pixels[
+                valid_depth
+            ]
+
+            z_values = z_values[
+                valid_depth
+            ]
+
+            if len(z_values) < self.min_valid_points:
+                continue
+
+            median_depth = float(
+                np.median(z_values)
+            )
+
+            same_surface = (
+                np.abs(
+                    z_values
+                    - median_depth
+                )
+                <= self.depth_band_m
+            )
+
+            u_pixels = u_pixels[
+                same_surface
+            ]
+
+            v_pixels = v_pixels[
+                same_surface
+            ]
+
+            z_values = z_values[
+                same_surface
+            ]
+
+            if len(z_values) < self.min_valid_points:
+                continue
+
+            x_values = (
+                (
+                    u_pixels.astype(np.float32)
+                    - cx
+                )
+                * z_values
+                / fx
+            )
+
+            y_values = (
+                (
+                    v_pixels.astype(np.float32)
+                    - cy
+                )
+                * z_values
+                / fy
+            )
+
+            object_points = np.column_stack(
+                (
+                    x_values,
+                    y_values,
+                    z_values
+                )
+            )
+
+            center_camera = np.median(
+                object_points,
+                axis=0
+            )
+
+            point_camera = PointStamped()
+
+            point_camera.header.stamp = stamp
+            point_camera.header.frame_id = (
+                self.camera_tf_frame
+            )
+
+            point_camera.point.x = float(
+                center_camera[0]
+            )
+
+            point_camera.point.y = float(
+                center_camera[1]
+            )
+
+            point_camera.point.z = float(
+                center_camera[2]
+            )
+
+            point_odom = do_transform_point(
+                point_camera,
+                camera_to_target
+            )
+
+            center_odom = np.array(
+                [
+                    point_odom.point.x,
+                    point_odom.point.y,
+                    point_odom.point.z
+                ],
+                dtype=np.float64
+            )
+
+            candidates.append(
+                {
+                    'label': label,
+                    'points_camera': object_points,
+                    'center_odom': center_odom
+                }
+            )
+
+            self.get_logger().info(
+                f'Candidato componente | '
+                f'label={label} | '
+                f'area={area} px | '
+                f'odom=({center_odom[0]:.2f}, '
+                f'{center_odom[1]:.2f}, '
+                f'{center_odom[2]:.2f}) | '
+                f'depth_mediana={median_depth:.2f} m'
+            )
+
+        if len(candidates) == 0:
+            return None
+
+        # -------------------------------------------------
+        # Agrupar componentes cercanos en odom XY.
+        #
+        # Union-Find permite que:
+        # A cerca de B, y B cerca de C
+        # terminen formando una sola instancia.
+        # -------------------------------------------------
+
+        n = len(candidates)
+
+        parent = list(
+            range(n)
+        )
+
+        def find(index):
+
+            while parent[index] != index:
+
+                parent[index] = parent[
+                    parent[index]
+                ]
+
+                index = parent[index]
+
+            return index
+
+        def union(a, b):
+
+            root_a = find(a)
+            root_b = find(b)
+
+            if root_a != root_b:
+                parent[root_b] = root_a
+
+        for i in range(n):
+
+            for j in range(
+                i + 1,
+                n
+            ):
+
+                distance = float(
+                    np.linalg.norm(
+                        candidates[i][
+                            'center_odom'
+                        ][:2]
+                        -
+                        candidates[j][
+                            'center_odom'
+                        ][:2]
+                    )
+                )
+
+                if (
+                    distance
+                    <= self.instance_merge_distance_m
+                ):
+                    union(i, j)
+
+        groups = {}
+
+        for index in range(n):
+
+            root = find(index)
+
+            groups.setdefault(
+                root,
+                []
+            ).append(index)
+
+        self.get_logger().info(
+            'Agrupación semántica | '
+            f'componentes_validos={len(candidates)} | '
+            f'instancias={len(groups)}'
+        )
+
+        # -------------------------------------------------
+        # Calcular centro de cada instancia agrupada
+        # -------------------------------------------------
+
+        best_labels = None
+        best_distance = float('inf')
+
+        for instance_number, indexes in enumerate(
+            groups.values(),
+            start=1
+        ):
+
+            merged_points = np.vstack(
+                [
+                    candidates[index][
+                        'points_camera'
+                    ]
+                    for index in indexes
+                ]
+            )
+
+            center_camera = np.median(
+                merged_points,
+                axis=0
+            )
+
+            point_camera = PointStamped()
+
+            point_camera.header.stamp = stamp
+            point_camera.header.frame_id = (
+                self.camera_tf_frame
+            )
+
+            point_camera.point.x = float(
+                center_camera[0]
+            )
+
+            point_camera.point.y = float(
+                center_camera[1]
+            )
+
+            point_camera.point.z = float(
+                center_camera[2]
+            )
+
+            point_odom = do_transform_point(
+                point_camera,
+                camera_to_target
+            )
+
+            object_x = float(
+                point_odom.point.x
+            )
+
+            object_y = float(
+                point_odom.point.y
+            )
+
+            distance_robot = math.hypot(
+                object_x - robot_x,
+                object_y - robot_y
+            )
+
+            group_labels = [
+                candidates[index]['label']
+                for index in indexes
+            ]
+
+            self.get_logger().info(
+                f'Instancia {instance_number} | '
+                f'labels={group_labels} | '
+                f'odom=({object_x:.2f}, '
+                f'{object_y:.2f}) | '
+                f'distancia_robot='
+                f'{distance_robot:.2f} m'
+            )
+
+            if distance_robot < best_distance:
+
+                best_distance = distance_robot
+                best_labels = group_labels
+
+        if best_labels is None:
+            return None
+
+        self.get_logger().info(
+            'Selección de instancia | '
+            f'candidatos={len(groups)} | '
+            f'labels_seleccionados={best_labels} | '
+            f'distancia_robot='
+            f'{best_distance:.2f} m'
+        )
+
+        # Une todos los componentes pertenecientes
+        # a la instancia ganadora.
+        selected_mask = np.isin(
+            labels,
+            best_labels
+        )
+
+        return selected_mask
+
     def reset_target_callback(self, request, response):
         self.locked_target_position = None
         self.position_history.clear()
@@ -336,8 +721,10 @@ class SemanticLocalizerNode(Node):
             iterations=1
         )
 
-        component_mask = self.select_largest_component(
-            binary_mask
+        component_mask = self.select_nearest_component(
+            binary_mask,
+            depth_m,
+            depth_message.header.stamp
         )
 
         if component_mask is None:
@@ -345,6 +732,30 @@ class SemanticLocalizerNode(Node):
                 'No se encontró una región segmentada válida'
             )
             return
+
+        # Publicamos exactamente la máscara de la instancia
+        # que el localizador seleccionó.
+        selected_mask_image = (
+            component_mask.astype(np.uint8)
+            * 255
+        )
+
+        selected_mask_message = (
+            self.bridge.cv2_to_imgmsg(
+                selected_mask_image,
+                encoding='mono8'
+            )
+        )
+
+        # Conservamos el timestamp de CLIPSeg para poder
+        # sincronizarla con el ground truth de Isaac.
+        selected_mask_message.header = (
+            mask_message.header
+        )
+
+        self.selected_mask_publisher.publish(
+            selected_mask_message
+        )
 
         # np.where devuelve:
         # v = fila de la imagen
