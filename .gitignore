@@ -45,3 +45,6 @@ nav2_params_original.yaml
 *.pem
 *.key
 credentials*
+
+# Compressed local evaluation backup
+/evaluation.zip
