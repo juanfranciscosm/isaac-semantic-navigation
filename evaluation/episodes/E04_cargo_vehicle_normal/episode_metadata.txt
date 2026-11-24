@@ -1,0 +1,36 @@
+Episodio: 4
+Identificador: E04_cargo_vehicle_normal
+
+Objeto solicitado: cargo vehicle
+Objeto alcanzado: cargo vehicle
+Condición: Normal
+
+Escena:
+warehouse_cargo_vehicle_normal.usd
+
+Descripción de la condición:
+Escenario original para el segundo objeto, sin oclusión y con la
+configuración normal de iluminación.
+
+Pose inicial del robot:
+Pose específica configurada para observar y navegar hacia cargo vehicle.
+
+Pose del objeto:
+Sin modificaciones.
+
+Prompt de CLIPSeg:
+cargo vehicle
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 113 segundos

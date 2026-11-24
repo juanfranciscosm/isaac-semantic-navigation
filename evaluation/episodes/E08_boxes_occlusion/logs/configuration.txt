@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T20:32:22-05:00
+Episodio: E08_boxes_occlusion20
+Objeto solicitado: boxes
+Condición: Oclusión 20%
+
+Parámetros de CLIPSeg:
+String value is: boxes
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

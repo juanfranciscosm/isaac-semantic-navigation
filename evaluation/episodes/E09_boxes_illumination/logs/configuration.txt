@@ -1,0 +1,13 @@
+Fecha: 2026-08-01T21:09:06-05:00
+Episodio: E09_boxes_illumination
+Objeto solicitado: boxes
+Condición: Iluminación
+Cambio: intensidad de luz reducida al 25 %
+
+Parámetros de CLIPSeg:
+String value is: boxes
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

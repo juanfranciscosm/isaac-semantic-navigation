@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T23:19:22-05:00
+Episodio: E13_extinguisher_normal
+Objeto solicitado: extinguisher
+Condición: Normal
+
+Parámetros de CLIPSeg:
+String value is: extinguisher
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

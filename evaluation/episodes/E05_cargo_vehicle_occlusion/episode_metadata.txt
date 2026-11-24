@@ -1,0 +1,41 @@
+Episodio: 5
+Identificador: E05_cargo_vehicle_occlusion
+
+Objeto solicitado: cargo vehicle
+Objeto alcanzado: cargo vehicle
+Condición: Oclusión
+Porcentaje aproximado de oclusión: 50 %
+
+Escena:
+warehouse_cargo_vehicle_occlusion.usd
+
+Descripción de la condición:
+Se colocó un elemento delante de cargo vehicle para ocultar
+aproximadamente el 50 % de su superficie visible desde la cámara inicial
+del Jackal.
+
+Pose inicial del robot:
+La misma utilizada en el episodio 4.
+
+Pose del objeto:
+Sin modificaciones respecto al episodio 4.
+
+Iluminación:
+Sin modificaciones respecto al episodio 4.
+
+Prompt de CLIPSeg:
+cargo vehicle
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 434 segundos

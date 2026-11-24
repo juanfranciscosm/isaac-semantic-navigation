@@ -1,0 +1,44 @@
+Episodio: 7
+Identificador: E07_boxes_normal
+
+Objeto solicitado:
+boxes
+
+Objeto alcanzado:
+boxes
+
+Condición:
+Normal
+
+Escena:
+warehouse_boxes_normal.usd
+
+Descripción del objetivo:
+Grupo de cajas seleccionado para la evaluación. El objetivo debe
+considerarse como un único conjunto visual y espacial.
+
+Descripción de la condición:
+Escenario original, sin oclusión y con la iluminación normal.
+
+Pose inicial del robot:
+Pose específica configurada para observar el grupo de cajas.
+
+Pose de las cajas:
+Sin modificaciones.
+
+Prompt de CLIPSeg:
+boxes
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 178 segundos

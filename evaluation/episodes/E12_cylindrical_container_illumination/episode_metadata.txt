@@ -1,0 +1,47 @@
+Episodio: 12
+Identificador: E12_cylindrical_container_illumination
+
+Objeto solicitado:
+blue cylindrical container
+
+Objeto alcanzado:
+cylindricals containers group
+
+Condición:
+Iluminación
+
+Escena:
+warehouse_cylindrical_container_illumination.usd
+
+Descripción de la instancia objetivo:
+La misma instancia utilizada en los episodios 10 y 11.
+
+Descripción de la condición:
+Se redujo únicamente la intensidad de la luz principal al 25 % de su
+valor original.
+
+Pose inicial del robot:
+La misma utilizada en los episodios 10 y 11.
+
+Pose del objeto:
+Sin modificaciones.
+
+Oclusión:
+Ninguna.
+
+Prompt de CLIPSeg:
+String value is: blue cylindrical container next to a grey cylindrical container
+
+Threshold:
+0.70
+
+Frecuencia máxima:
+2.0 Hz
+
+Identificación correcta: NO
+Objeto alcanzado: Parcial
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Fallido
+Duración: 317 segundos

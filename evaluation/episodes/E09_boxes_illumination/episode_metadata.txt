@@ -1,0 +1,39 @@
+Episodio: 9
+Identificador: E09_boxes_illumination
+
+Objeto solicitado:
+boxes
+
+Objeto alcanzado:
+boxes
+
+Condición:
+Iluminación
+
+Escena:
+warehouse_boxes_illumination.usd
+
+Descripción del objetivo:
+El mismo grupo de cajas utilizado en los episodios 7 y 8.
+
+Descripción de la condición:
+Se redujo únicamente la intensidad de la luz principal al 25 % de su
+valor original.
+
+Pose inicial del robot:
+La misma utilizada en los episodios 7 y 8.
+
+Pose de las cajas:
+Sin modificaciones.
+
+Oclusión:
+Ninguna.
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: NO
+Resultado: Exitoso
+Duración: 162 segundos
+

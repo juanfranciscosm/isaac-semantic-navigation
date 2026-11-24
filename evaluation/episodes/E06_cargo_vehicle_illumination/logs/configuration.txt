@@ -1,0 +1,13 @@
+Fecha: 2026-08-01T18:58:57-05:00
+Episodio: E06_cargo_vehicle_illumination
+Objeto solicitado: cargo vehicle
+Condición: Iluminación
+Cambio: intensidad de luz reducida al 25 %
+
+Parámetros CLIPSeg:
+String value is: cargo vehicle
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

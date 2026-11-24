@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T21:51:58-05:00
+Episodio: E10_cylindrical_container_normal
+Objeto solicitado: cylindrical container
+Condición: Normal
+
+Parámetros de CLIPSeg:
+String value is: blue cylindrical container next to a grey cylindrical container
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

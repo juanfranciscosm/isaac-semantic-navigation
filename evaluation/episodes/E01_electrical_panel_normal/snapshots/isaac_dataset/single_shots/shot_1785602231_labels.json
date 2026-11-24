@@ -1,0 +1,23 @@
+{
+    "0": "BACKGROUND",
+    "1": "UNLABELLED",
+    "196": "/World/Warehouse_Empty_small_realtime/SM_SignA_27/SM_SignA_02",
+    "197": "/World/Warehouse_Empty_small_realtime/SM_SignB_23/SM_SignB_11",
+    "198": "/World/Warehouse_Empty_small_realtime/SM_SignB_3/SM_SignB_02",
+    "244": "/World/Warehouse_Empty_small_realtime/SM_WallA_3M43/SM_WallA_6M/Section0",
+    "245": "/World/Warehouse_Empty_small_realtime/SM_WallA_3M43/SM_WallA_6M/Section1",
+    "246": "/World/Warehouse_Empty_small_realtime/SM_WallA_3M44/SM_WallA_6M/Section0",
+    "247": "/World/Warehouse_Empty_small_realtime/SM_WallA_3M44/SM_WallA_6M/Section1",
+    "274": "/World/Warehouse_Empty_small_realtime/SM_WallA_InnerCorner12/SM_WallA_InnerCorner/Section1",
+    "292": "/World/Warehouse_Empty_small_realtime/SM_WallWire_63/SM_WallWire_03",
+    "293": "/World/Warehouse_Empty_small_realtime/SM_WallWire_64/SM_WallWire_02",
+    "313": "/World/Warehouse_Empty_small_realtime/SM_floor51/SM_floor02",
+    "321": "/World/Warehouse_Empty_small_realtime/SM_floor60/SM_floor02",
+    "322": "/World/Warehouse_Empty_small_realtime/SM_floor62/SM_floor02",
+    "330": "/World/Warehouse_Empty_small_realtime/SM_floor61/SM_floor02",
+    "69": "/World/Warehouse_Empty_small_realtime/SM_FuseBox_24/SM_FuseBox_01",
+    "time_stamp": {
+        "nanosec": 533348381,
+        "sec": 288
+    }
+}

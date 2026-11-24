@@ -1,0 +1,13 @@
+Fecha: 2026-08-01T14:41:46-05:00
+Episodio: E03_electrical_panel_illumination
+Objeto solicitado: electrical_panel
+Condición: Iluminación
+Cambio: intensidad de luz reducida al 25 %
+
+Parámetros CLIPSeg:
+String value is: electrical panel
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

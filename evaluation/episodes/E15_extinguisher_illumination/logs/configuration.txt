@@ -1,0 +1,13 @@
+Fecha: 2026-08-02T00:02:18-05:00
+Episodio: E15_extinguisher_illumination
+Objeto solicitado: extinguisher
+Condición: Iluminación
+Cambio: intensidad de luz reducida al 25 %
+
+Parámetros CLIPSeg:
+String value is: extinguisher
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

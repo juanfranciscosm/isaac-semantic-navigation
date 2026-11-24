@@ -1,0 +1,50 @@
+Episodio: 11
+Identificador: E11_cylindrical_container_occlusion20
+
+Objeto solicitado:
+blue cylindrical container
+
+Objeto alcanzado:
+blue cylindrical container
+
+Condición:
+Oclusión
+
+Porcentaje aproximado:
+50 %
+
+Escena:
+warehouse_cylindrical_container_occlusion.usd
+
+Descripción de la instancia objetivo:
+La misma instancia utilizada en el episodio 10.
+
+Descripción de la condición:
+Se colocó un elemento delante del contenedor para ocultar aproximadamente
+el 50 % de su superficie visible desde la cámara inicial.
+
+Pose inicial del robot:
+La misma utilizada en el episodio 10.
+
+Pose del objeto:
+Sin modificaciones respecto al episodio 10.
+
+Iluminación:
+Sin modificaciones respecto al episodio 10.
+
+Prompt de CLIPSeg:
+String value is: blue cylindrical container next to a grey cylindrical container
+
+Threshold:
+0.70
+
+Frecuencia máxima:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 265 segundos

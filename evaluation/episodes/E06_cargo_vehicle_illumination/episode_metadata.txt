@@ -1,0 +1,34 @@
+Episodio: 6
+Identificador: E06_cargo_vehicle_illumination
+
+Objeto solicitado: cargo vehicle
+Condición: Iluminación
+
+Escena:
+warehouse_cargo_vehicle_illumination.usd
+
+Cambio aplicado:
+Intensidad de la luz reducida al 50 % del valor original.
+
+Prompt:
+cargo vehicle
+
+Threshold:
+0.70
+
+Frecuencia máxima:
+2.0 Hz
+
+Pose inicial:
+La misma utilizada en los episodios 4 y 5.
+
+Oclusión:
+Ninguna.
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Duración: 119 segundos
+

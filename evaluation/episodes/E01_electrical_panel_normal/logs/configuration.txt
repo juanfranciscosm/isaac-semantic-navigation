@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T13:38:20-05:00
+Episodio: E02_electrical_panel_normal
+Objeto solicitado: electrical panel
+Condición: Normal
+
+Parámetros de CLIPSeg:
+String value is: electrical panel
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

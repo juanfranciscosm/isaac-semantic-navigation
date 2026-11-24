@@ -1,0 +1,1 @@
+No se recibió un punto estable durante 10 segundos.

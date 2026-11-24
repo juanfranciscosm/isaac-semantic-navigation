@@ -1,0 +1,16 @@
+episodio,objeto_solicitado,objeto_alcanzado,exito,condicion,tiempo_s,observaciones
+1,electrical panel,electrical panel,si,Normal,117,Identificación y navegación correctas
+2,electrical panel,ninguno,no,Oclusión 20%,30,Fallo de identificación; CLIPSeg no reconoció correctamente el objeto y no se ejecutó navegación
+3,electrical panel,electrical panel,si,Iluminación,107,Objeto identificado y alcanzado con intensidad reducida al 25%
+4,cargo vehicle,cargo vehicle,si,Normal,113,Objeto identificado y alcanzado correctamente
+5,cargo vehicle,cargo vehicle,si,Oclusión 50%,434,Objeto identificado y alcanzado con oclusión parcial
+6,cargo vehicle,cargo vehicle,si,Iluminación,119,Objeto identificado y alcanzado con intensidad reducida al 25%
+7,boxes,boxes,si,Normal,178,Grupo de cajas identificado y alcanzado correctamente
+8,boxes,boxes,si,Oclusión 80%,226,Grupo de cajas identificado y alcanzado con oclusión parcial; No se alcanzo la orientacion final correcta
+9,boxes,boxes,si,Iluminación,162,Grupo de cajas identificado y alcanzado con intensidad reducida al 25%
+10,blue cylindrical container,blue cylindrical container,si,Normal,311,Contenedor cilíndrico azul identificado y alcanzado correctamente
+11,blue cylindrical container,blue cylindrical container,si,Oclusión 50%,265,Contenedor identificado y alcanzado con oclusión parcial
+12,blue cylindrical container,blue cylindrical container,no,Iluminación,317,Contenedor no identificado con precision, pero se alcanzo una posición aproximada con intensidad reducida al 25%
+13,extinguisher,extinguisher,si,Normal,220,Extintor identificado y alcanzado correctamente
+14,extinguisher,ninguno,no,Oclusión 50%,30,CLIPSeg no identificó de forma confiable el extintor con oclusión parcial; navegación no ejecutada
+15,extinguisher,ninguno,no,Iluminación,30,CLIPSeg no identificó el extintor con iluminación reducida; navegación no ejecutada

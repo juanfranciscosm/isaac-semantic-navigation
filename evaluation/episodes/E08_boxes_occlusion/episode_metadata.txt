@@ -1,0 +1,53 @@
+Episodio: 8
+Identificador: E08_boxes_occlusion
+
+Objeto solicitado:
+boxes
+
+Objeto alcanzado:
+boxes
+
+Condición:
+Oclusión
+
+Porcentaje aproximado de oclusión:
+80 %
+
+Escena:
+warehouse_boxes_occlusion.usd
+
+Descripción del objetivo:
+El mismo grupo de cajas utilizado en el episodio 7.
+
+Descripción de la condición:
+Se colocó un elemento delante del grupo objetivo para ocultar
+aproximadamente el 80 % de su superficie visible desde la cámara inicial.
+
+Pose inicial del robot:
+La misma utilizada en el episodio 7.
+
+Pose de las cajas:
+Sin modificaciones respecto al episodio 7.
+
+Iluminación:
+Sin modificaciones respecto al episodio 7.
+
+Prompt de CLIPSeg:
+boxes
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: NO
+Resultado: Exitoso
+Duración: 226 segundos
+
+observaciones: 
+La segmentación del objeto era inestable.

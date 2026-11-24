@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T16:50:33-05:00
+Episodio: E04_cargo_vehicle_normal
+Objeto solicitado: cargo vehicle
+Condición: Normal
+
+Parámetros de CLIPSeg:
+String value is: cargo vehicle
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

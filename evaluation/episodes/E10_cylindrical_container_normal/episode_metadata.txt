@@ -1,0 +1,43 @@
+Episodio: 10
+Identificador: E10_cylindrical_container_normal
+
+Objeto solicitado:
+blue cylindrical container 
+
+Objeto alcanzado:
+blue cylindrical container
+
+Condición:
+Normal
+
+Escena:
+warehouse_cylindrical_container_normal.usd
+
+Descripción de la instancia objetivo:
+contenedor cilindrico azul 
+
+Descripción de la condición:
+Escenario original, sin oclusión y con la iluminación normal.
+
+Pose inicial del robot:
+Pose específica configurada para observar el contenedor cilíndrico.
+
+Pose del objeto:
+Sin modificaciones.
+
+Prompt de CLIPSeg:
+blue cylindrical container next to a grey cylindrical container
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 311 segundos

@@ -1,0 +1,41 @@
+Episodio: 3
+Identificador: E03_electrical_panel_illumination
+
+Objeto solicitado: electrical panel
+Objeto alcanzado: electrical panel
+Condición: Iluminación
+
+Escena:
+warehouse_electrical_panel_illumination.usd
+
+Descripción de la condición:
+Se modificó únicamente la intensidad de la luz principal del escenario.
+
+Porcentaje de intensidad utilizado:
+25 % del valor original
+
+Pose inicial del robot:
+La misma utilizada en los episodios 1 y 2.
+
+Pose del objeto:
+Sin modificaciones.
+
+Oclusión:
+Ninguna.
+
+Prompt de CLIPSeg:
+electrical panel
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 107 segundos

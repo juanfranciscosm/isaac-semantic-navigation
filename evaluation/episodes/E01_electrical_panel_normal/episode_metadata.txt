@@ -1,0 +1,36 @@
+Episodio: 1
+Identificador: E01_electrical_panel_normal
+
+Objeto solicitado: electrcal panel
+Objeto alcanzado: electrical panel
+Condición: Normal
+
+Escena:
+warehouse_electrical_panel_normal.usd
+
+Descripción de la condición:
+Escenario original, sin oclusión y con la configuración normal de
+iluminación.
+
+Pose inicial del robot:
+Pose específica configurada para el objeto electrical panel.
+
+Pose del objeto:
+Sin modificaciones.
+
+Prompt de CLIPSeg:
+electrical panel
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: SI
+Objeto alcanzado: SI
+Navegación ejecutada: SI
+Colisión: NO
+Orientación final correcta: SI
+Resultado: Exitoso
+Duración: 117 segundos

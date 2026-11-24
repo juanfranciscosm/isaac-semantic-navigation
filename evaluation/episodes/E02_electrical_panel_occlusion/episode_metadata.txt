@@ -1,0 +1,47 @@
+Episodio: 2
+Identificador: E02_electrical_panel_occlusion
+
+Objeto solicitado: electrical panel
+Objeto alcanzado: ninguno
+Condición: Oclusión
+Porcentaje aproximado de oclusión: 20 %
+
+Escena:
+warehouse_electrical_panel_occlusion.usd
+
+Descripción de la condición:
+Se colocó un elemento delante del objeto para ocultar aproximadamente
+el 20 % de su superficie visible desde la cámara inicial del Jackal.
+
+Pose inicial del robot:
+La misma utilizada en el episodio 1.
+
+Pose del objeto:
+Sin modificaciones respecto al episodio 1.
+
+Iluminación:
+Sin modificaciones respecto al episodio 1.
+
+Prompt de CLIPSeg:
+electrical panel
+
+Threshold de CLIPSeg:
+0.70
+
+Frecuencia máxima de inferencia:
+2.0 Hz
+
+Identificación correcta: NO
+Objeto alcanzado: NO
+Navegación ejecutada: NO
+Colisión: NO
+Orientación final correcta: No aplica
+Resultado: Fallido
+
+Etapa del fallo:
+Segmentación e identificación semántica.
+
+Descripción del resultado:
+Con una oclusión aproximada del 20 %, CLIPSeg no identificó
+correctamente el objeto solicitado. La máscara obtenida no permitió
+establecer una localización semántica confiable del objeto electrical panel.

@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T20:10:10-05:00
+Episodio: E07_boxes_normal
+Objeto solicitado: boxes
+Condición: Normal
+
+Parámetros de CLIPSeg:
+String value is: boxes
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False

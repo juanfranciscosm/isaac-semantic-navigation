@@ -1,0 +1,57 @@
+Episodio: 15
+Identificador: E15_extinguisher_illumination
+
+Objeto solicitado:
+extinguisher
+
+Objeto alcanzado:
+ninguno
+
+Condición:
+Iluminación
+
+Escena:
+warehouse_extinguisher_illumination.usd
+
+Descripción de la instancia objetivo:
+La misma instancia utilizada en los episodios 13 y 14.
+
+Descripción de la condición:
+Se redujo únicamente la intensidad de la luz principal al 25 % de su
+valor original.
+
+Pose inicial del robot:
+La misma utilizada en los episodios 13 y 14.
+
+Pose del objeto:
+Sin modificaciones.
+
+Oclusión:
+Ninguna.
+
+Porcentaje de intensidad:
+25 % del valor original
+
+Prompt de CLIPSeg:
+extinguisher
+
+Threshold:
+0.70
+
+Frecuencia máxima:
+2.0 Hz
+
+Identificación correcta: NO
+Objeto alcanzado: NO
+Navegación ejecutada: NO
+Colisión: NO
+Orientación final correcta: No aplica
+Resultado: Fallido
+
+Etapa del fallo:
+Segmentación e identificación semántica.
+
+Descripción del resultado:
+Con una iluminación reducida a un 25% de su valor original, CLIPSeg no identificó
+correctamente el objeto solicitado. La máscara obtenida no permitió
+establecer una localización semántica confiable del objeto.

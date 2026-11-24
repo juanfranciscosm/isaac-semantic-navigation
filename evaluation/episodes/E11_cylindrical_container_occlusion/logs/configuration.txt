@@ -1,0 +1,12 @@
+Fecha: 2026-08-01T22:13:38-05:00
+Episodio: E11_cylindrical_container_occlusion
+Objeto solicitado: cylindrical container
+Condición: Oclusión 50%
+
+Parámetros CLIPSeg:
+String value is: blue cylindrical container next to a grey cylindrical container
+Double value is: 0.7
+Double value is: 2.0
+
+Estado del navegador:
+Boolean value is: False
