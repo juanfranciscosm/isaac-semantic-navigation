@@ -48,3 +48,11 @@ credentials*
 
 # Compressed local evaluation backup
 /evaluation.zip
+
+# Raw experimental evidence preserved in external backups
+/evaluation/episodes/*/screenshots/
+/evaluation/episodes/*/snapshots/isaac_dataset/single_shots/depth/
+/evaluation/episodes/*/snapshots/isaac_dataset/single_shots/pcl/
+/evaluation/episodes/*/snapshots/isaac_dataset/single_shots/rgb/
+/evaluation/episodes/*/snapshots/isaac_dataset/single_shots/seg_color/
+/evaluation/episodes/*/snapshots/isaac_dataset/single_shots/seg_raw/

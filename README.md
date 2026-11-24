@@ -1,5 +1,88 @@
 # Navegación semántica en Isaac Sim con ROS 2
 
+<!-- RESEARCH_SNAPSHOT_2026 -->
+
+## Semantic Indoor Navigation — CLIPSeg and VLMaps
+
+**Developer:** Juan Francisco Sánchez Maldonado
+
+**Institution:** ESPOL — CTI
+
+## Project overview
+
+Research platform for semantic indoor navigation using
+a simulated Clearpath Jackal mobile robot.
+
+The system integrates NVIDIA Isaac Sim, ROS 2 Jazzy,
+CLIPSeg, VLMaps, RGB-D perception and Nav2.
+
+## System architecture
+
+```mermaid
+flowchart TD
+    A[Isaac Sim - Jackal] --> B[RGB-D and odometry]
+    B --> C[CLIPSeg segmentation]
+    C --> D[3D semantic localization]
+    B --> E[VLMaps dataset recorder]
+    E --> F[Semantic map construction]
+    F --> G[VLMaps target localization]
+    D --> H[Navigation goal]
+    G --> H
+    H --> I[Nav2]
+    I --> J[Robot motion]
+    D --> K[Experimental evaluation]
+    G --> K
+    I --> K
+```
+
+The VLMaps path represents the comparative research workflow.
+Its complete navigation benchmark remains under development.
+
+## Documentation
+
+| Document | Description |
+|---|---|
+| [Installation](docs/INSTALLATION.md) | Environment and dependencies |
+| [Experimental protocol](docs/EXPERIMENTAL_PROTOCOL.md) | Research methodology |
+| [VLMaps integration](docs/VLMAPS_INTEGRATION.md) | Mapping and localization |
+| [Data management](docs/DATA_MANAGEMENT.md) | Experimental datasets |
+| [Authors](AUTHORS.md) | Software contributions |
+| [Changelog](CHANGELOG.md) | Development history |
+| [Base project](BASE_PROJECT.md) | Original project attribution |
+
+## Companion repository
+
+[Customized VLMaps implementation](https://github.com/juanfranciscosm/vlmaps/tree/jackal-vlmaps-benchmark)
+
+Pinned commit:
+
+`bd5bb23ee0936af29155e08bf19764eae83509af`
+
+## Experimental benchmark
+
+- Ten semantic object categories.
+- Six illumination and occlusion conditions.
+- Sixty planned experimental combinations.
+- Automated navigation evaluation.
+- Twenty-four mapping poses per VLMaps scenario.
+
+[CLIPSeg benchmark results](evaluation/benchmark_clipseg_results/)
+
+[VLMaps dataset inventory](evaluation/manifests/vlmaps_dataset_inventory.csv)
+
+## Research status
+
+Snapshot: November 24, 2026.
+
+CLIPSeg benchmark records are available.
+
+VLMaps acquisition and comparative evaluation remain partially completed.
+
+---
+
+## Detailed technical documentation
+
+
 Sistema de navegación semántica para un robot Clearpath Jackal simulado
 en NVIDIA Isaac Sim. El sistema permite localizar un objeto mediante una
 descripción textual, estimar su posición tridimensional y navegar
