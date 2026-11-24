@@ -49,5 +49,3 @@ Use the dedicated Python environment described in README.md.
 See README.md for detailed execution commands.
 
 See VLMAPS_INTEGRATION.md for the alternative mapping approach.
-
-

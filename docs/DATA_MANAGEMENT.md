@@ -46,5 +46,3 @@ The inventory records sample counts and map availability.
 
 Screenshots, point clouds, depth arrays and segmentation
 images remain in the local workspace and backup archive.
-
-

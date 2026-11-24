@@ -40,4 +40,3 @@
 - Three-dimensional object localization.
 - Autonomous Jackal navigation with Nav2.
 - Installation and architecture documentation.
-

@@ -30,4 +30,3 @@ GitHub: https://github.com/juanfranciscosm
 - https://github.com/timojl/clipseg
 - https://github.com/ros-navigation/navigation2
 - NVIDIA Isaac Sim.
-

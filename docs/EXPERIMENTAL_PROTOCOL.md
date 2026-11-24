@@ -70,5 +70,3 @@ VLMaps acquisition remains partially completed.
 The computer_O80 acquisition was interrupted after five samples.
 
 Map availability does not establish map validity or navigation success.
-
-
